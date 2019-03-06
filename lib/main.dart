@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 
+import './homes_manager.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _MyAppState();
-  }
-}
-
-class _MyAppState extends State<MyApp> {
-  List<String> _houses = ['Big Home'];
+class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
@@ -20,31 +14,8 @@ class _MyAppState extends State<MyApp> {
             appBar: AppBar(
               title: Text("Parinaz new home"),
             ),
-            body: Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: RaisedButton(
-                    child: Text("Add new home"),
-                    onPressed: () {
-                      setState(() {
-                        _houses.add('New Home!');
-                      });
-                    },
-                  ),
-                ),
-                Column(
-                    children: _houses
-                        .map((element) => Card(
-                              child: Column(
-                                children: <Widget>[
-                                  Image.asset('assets/home.png'),
-                                  Text("new home")
-                                ],
-                              ),
-                            ))
-                        .toList())
-              ],
-            )));
+            body: HomesManager()
+        )
+    );
   }
 }
