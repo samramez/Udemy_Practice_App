@@ -12,11 +12,16 @@ class Homes extends StatelessWidget {
             .map((element) => Card(
                   child: Column(
                     children: <Widget>[
-                      Image.asset('assets/home.png'),
-                      Text("new home")
+                      Image.asset('assets/home_logo.png'),
+                      Text(element)
                     ],
                   ),
                 ))
             .toList());
   }
 }
+
+/** Notes:
+ * map() enables to transform every element in the list and return it as
+ * a new element.
+ */

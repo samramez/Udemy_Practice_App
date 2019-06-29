@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import './homes.dart';
 
 class HomesManager extends StatefulWidget {
+  final String startingHomes;
+
+  HomesManager(this.startingHomes);
 
   @override
   State<StatefulWidget> createState() {
@@ -11,8 +14,14 @@ class HomesManager extends StatefulWidget {
 }
 
 class _HomeManagerState extends State<HomesManager> {
+  List<String> _houses = [];
 
-  List<String> _houses = ['Big Home'];
+  @override
+  void initState() {
+    super.initState();
+    _houses.add(widget.startingHomes);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +29,8 @@ class _HomeManagerState extends State<HomesManager> {
       Container(
         margin: EdgeInsets.all(10),
         child: RaisedButton(
+          color: Theme.of(context).primaryColor,
+          textColor: Colors.white,
           child: Text("Add new home"),
           onPressed: () {
             setState(() {
